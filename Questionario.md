@@ -2,19 +2,40 @@
 
 ## 1. Explique brevemente o que é compilação cruzada (***cross-compiling***) e para que ela serve.
 
+Compilação cruzada é o processo de compilar um programa para uma arquitetura diferente da qual o compilador está sendo executado.
+O cross-compiling vai ser especialmente útil para microcontroladores que não possuem sistema operacional.
+No caso dessa disciplina o compilador está sendo executado em uma distribuição linux e o mesmo está compilador para a arquitetura ARM.
+
 ## 2. O que é um código de inicialização ou ***startup*** e qual sua finalidade?
+
+No arquivo de startup devemos inicializar a Stack, a tabela de vetores de interrupção.
+Após isso, podemos copiar o conteudo da seção .data da Flash para a SRAM, inicializar a seção .bss com zeros e chamar a função main().
 
 ## 3. Sobre o utilitário **make** e o arquivo **Makefile responda**:
 
 #### (a) Explique com suas palavras o que é e para que serve o **Makefile**.
 
+Makefile serve para automatizar o processo relacionado com a compilação dos arquivos c.
+
 #### (b) Descreva brevemente o processo realizado pelo utilitário **make** para compilar um programa.
+
+O comando make deve ser executado seguido de um argumento indicando o target.
+Por exemplo, make all
 
 #### (c) Qual é a sintaxe utilizada para criar um novo **target**?
 
+```mak
+target: prerequisites
+    recipe
+```
+
 #### (d) Como são definidas as dependências de um **target**, para que elas são utilizadas?
 
+São definidas nos `prerequisites`.
+
 #### (e) O que são as regras do **Makefile**, qual a diferença entre regras implícitas e explícitas?
+
+As regras vão descrever como o make deve lidar com os targets.
 
 ## 4. Sobre a arquitetura **ARM Cortex-M** responda:
 
